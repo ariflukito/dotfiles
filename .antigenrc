@@ -1,0 +1,29 @@
+source /usr/share/zsh/scripts/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+# Load some bundles
+antigen bundle sudo
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+
+# Load the theme
+antigen theme robbyrussell
+
+# Tell antigen that you're done
+antigen apply
+
+#Bind arrow up and arror down keys for histroy substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Change color to suit solarized color scheme
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+
+# No highlight on history substring search
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='none'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='none'
+
+
