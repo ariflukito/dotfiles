@@ -21,8 +21,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=blue,bold,bg=black'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold,bg=black'
 
-zplug "plugins/sudo", from:oh-my-zsh
-
 #Bind arrow up and arror down keys for histroy substring search
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
