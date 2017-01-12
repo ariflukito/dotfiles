@@ -1,22 +1,22 @@
-" Don't be compatible with vi
-set nocompatible
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
+" Load some plugins
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-" Enable syntax highlighting
-syntax enable
+" Initialize plugin system
+call plug#end()
+
+" vim-airline configuration
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_skip_empty_sections = 1
 
 " Set solarized theme color
 colorscheme solarized
-
-" Show matching brackets
-set showmatch
-
-" Turn on wild menu
-set wildmenu
-set wildignore=*.o,*.class,*~
 
 " Use spaces instead of tabs
 set expandtab
@@ -25,12 +25,12 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 
-" Indent things
-set autoindent
-set smartindent
-
-" Search options
-set incsearch
+" Keyword completion options
 set ignorecase
-set infercase
+"set infercase
 set smartcase
+
+" Highlight search term
+set hlsearch
+
+set laststatus=2
