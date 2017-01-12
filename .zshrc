@@ -25,6 +25,4 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold,bg=black'
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 [[ -x /usr/bin/fortune ]] && fortune -s
