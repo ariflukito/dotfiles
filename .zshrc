@@ -25,4 +25,4 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold,bg=black'
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 
-[[ -x /usr/bin/fortune ]] && fortune -s /usr/share/fortune/chucknorris
+[[ -x /usr/bin/fortune ]] && fortune -s /usr/share/fortune/humorists /usr/share/fortune/riddles
