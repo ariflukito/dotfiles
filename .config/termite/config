@@ -1,5 +1,5 @@
 [options]
-font = SourceCodePro for Powerline 12
+font = Source Code Pro for Powerline 12
 mouse_autohide = true
 allow_bold = true
 cursor_blink = system
