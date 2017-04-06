@@ -7,7 +7,6 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 
 if [[ $TERM != "linux" ]]; then
-
     zplug "zsh-users/zsh-autosuggestions"
 
     # Load powerlevel9k prompt
