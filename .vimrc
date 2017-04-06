@@ -9,8 +9,20 @@ Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'severin-lemaignan/vim-minimap'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+" Only load on graphical terminal
+if &term !~ 'linux'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+endif
 
 " Initialize plugin system
 call plug#end()
@@ -24,14 +36,6 @@ let g:airline_skip_empty_sections = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Shortcut to change buffer easier
 nnoremap <Tab> :bnext<CR>
@@ -40,8 +44,13 @@ nnoremap <S-Tab> :bprevious<CR>
 " Shortcut for Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" Set solarized theme color
-colorscheme solarized
+" Set theme color
+if &term =~ 'linux'
+    colorscheme slate
+else
+    set background=dark
+    colorscheme solarized
+endif
 
 " Use spaces instead of tabs
 set expandtab

@@ -1,17 +1,23 @@
 source /usr/share/zsh/scripts/zplug/init.zsh
 
-# Powerlevel9k prompt settings
 DEFAULT_USER=$USER
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 # Load some plugins
 zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+
+if [[ $TERM != "linux" ]]; then
+
+    zplug "zsh-users/zsh-autosuggestions"
+
+    # Load powerlevel9k prompt
+    POWERLEVEL9K_MODE='awesome-patched'
+    POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+    POWERLEVEL9K_SHORTEN_DELIMITER=""
+    POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+    zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+fi
+
 zplug load
 
 # Change color to suit solarized color scheme
