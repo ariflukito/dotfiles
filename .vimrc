@@ -8,10 +8,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'severin-lemaignan/vim-minimap'
+Plug 'severin-lemaignan/vim-minimap', { 'on': 'MinimapToggle' }
 
 " Only load on graphical terminal
 if &term !~ 'linux'
+    Plug 'altercation/vim-colors-solarized'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     set statusline+=%#warningmsg#
