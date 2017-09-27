@@ -6,7 +6,7 @@ DEFAULT_USER=$USER
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 
-if [[ $TERM != "linux" ]]; then
+if [[ $TERM != "linux" && $TERM != "xterm" ]]; then
     zplug "zsh-users/zsh-autosuggestions"
 
     # Load powerlevel9k prompt
