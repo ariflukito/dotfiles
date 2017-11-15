@@ -47,7 +47,7 @@ if &term =~ 'linux'
     colorscheme slate
 else
     set background=dark
-    colorscheme industry
+    colorscheme slate 
 endif
 
 " Use spaces instead of tabs
