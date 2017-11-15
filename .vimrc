@@ -12,7 +12,7 @@ Plug 'severin-lemaignan/vim-minimap', { 'on': 'MinimapToggle' }
 
 " Only load on graphical terminal
 if &term !~ 'linux'
-    Plug 'altercation/vim-colors-solarized'
+    "Plug 'altercation/vim-colors-solarized'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     set statusline+=%#warningmsg#
@@ -50,7 +50,7 @@ if &term =~ 'linux'
     colorscheme slate
 else
     set background=dark
-    colorscheme solarized
+    colorscheme industry 
 endif
 
 " Use spaces instead of tabs
