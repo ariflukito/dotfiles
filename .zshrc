@@ -19,13 +19,6 @@ fi
 
 zplug load
 
-# Change color to suit solarized color scheme
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-
-# Change highlight colours for history substring search
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=blue,bold,bg=black'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold,bg=black'
-
 #Bind arrow up and arror down keys for histroy substring search
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
