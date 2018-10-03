@@ -12,7 +12,14 @@ Plug 'severin-lemaignan/vim-minimap', { 'on': 'MinimapToggle' }
 
 " Only load on graphical terminal
 if &term !~ 'linux'
+    
+    " Load some colorschemes
+    Plug 'kaicataldo/material.vim'
+    "Plug 'dikiaap/minimalist'
     "Plug 'altercation/vim-colors-solarized'
+
+    let g:material_terminal_italics = 1
+
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     set statusline+=%#warningmsg#
@@ -37,7 +44,6 @@ let g:airline_skip_empty_sections = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-
 " Shortcut to change buffer easier
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
@@ -50,7 +56,12 @@ if &term =~ 'linux'
     colorscheme slate
 else
     set background=dark
-    colorscheme slate 
+    colorscheme material 
+endif
+
+" True colors
+if (has("termguicolors"))
+    set termguicolors
 endif
 
 " Use spaces instead of tabs

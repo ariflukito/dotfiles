@@ -10,7 +10,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Only load on graphical terminal
 if &term !~ 'linux'
+    
+    " Load some colorschemes
+    Plug 'kaicataldo/material.vim'
+    "Plug 'dikiaap/minimalist'
     "Plug 'altercation/vim-colors-solarized'
+    
+    let g:material_terminal_italics = 1
+
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     set statusline+=%#warningmsg#
@@ -47,7 +54,12 @@ if &term =~ 'linux'
     colorscheme slate
 else
     set background=dark
-    colorscheme slate 
+    colorscheme material 
+endif
+
+" True colors
+if (has("termguicolors"))
+    set termguicolors
 endif
 
 " Use spaces instead of tabs
