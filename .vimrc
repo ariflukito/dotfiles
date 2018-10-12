@@ -59,13 +59,12 @@ nmap <F8> :TagbarToggle<CR>
 if &term =~ 'linux'
     colorscheme slate
 else
+    " True colors
+    if (has("termguicolors"))
+        set termguicolors
+    endif
     set background=dark
     colorscheme material
-endif
-
-" True colors
-if (has("termguicolors"))
-    set termguicolors
 endif
 
 " Use spaces instead of tabs
