@@ -7,23 +7,33 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'vim-syntastic/syntastic'
 
 " Only load on graphical terminal
 if &term !~ 'linux'
-    
+
     " Load some colorschemes
     Plug 'kaicataldo/material.vim'
     "Plug 'dikiaap/minimalist'
     "Plug 'altercation/vim-colors-solarized'
-    
+
     let g:material_terminal_italics = 1
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+
+    " vim-airline configuration
+    let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'default'
+    let g:airline_skip_empty_sections = 1
+    let g:airline_theme = 'hybrid'
+
+    " vim-syntastic configuration
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
-
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
@@ -32,11 +42,6 @@ endif
 
 " Initialize plugin system
 call plug#end()
-
-" vim-airline configuration
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_skip_empty_sections = 1
 
 " Shortcut for CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -54,7 +59,7 @@ if &term =~ 'linux'
     colorscheme slate
 else
     set background=dark
-    colorscheme material 
+    colorscheme material
 endif
 
 " True colors
