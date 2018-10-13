@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Load some plugins
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'

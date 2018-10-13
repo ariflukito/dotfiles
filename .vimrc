@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
