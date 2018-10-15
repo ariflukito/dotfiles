@@ -11,8 +11,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-syntastic/syntastic'
 
+let myterm = $TERM
+
 " Only load on graphical terminal
-if &term !~ 'linux'
+if myterm !~ 'linux'
 
     " Load some colorschemes
     Plug 'kaicataldo/material.vim'
@@ -56,7 +58,8 @@ nnoremap <S-Tab> :bprevious<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Set theme color
-if &term =~ 'linux'
+if myterm =~ 'linux'
+    set guicursor=
     colorscheme slate
 else
     " True colors
@@ -81,3 +84,6 @@ set number
 set ignorecase
 "set infercase
 set smartcase
+
+" Use clipboard buffer in X (requires xsel)
+set clipboard+=unnamedplus

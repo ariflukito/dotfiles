@@ -58,6 +58,7 @@ nmap <F8> :TagbarToggle<CR>
 
 " Set theme color
 if &term =~ 'linux'
+    set t_Co=256
     colorscheme slate
 else
     " True colors
@@ -85,3 +86,6 @@ set smartcase
 
 " Highlight search term
 set hlsearch
+
+" Use clipboard buffer in X
+set clipboard=unnamedplus
