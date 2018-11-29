@@ -70,6 +70,9 @@ else
     colorscheme material
 endif
 
+" Disable intro message
+set shortmess+=I
+
 " Use spaces instead of tabs
 set expandtab
 

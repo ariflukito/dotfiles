@@ -13,7 +13,7 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-syntastic/syntastic'
 
 " Only load on graphical terminal
-if &term !~ 'linux'
+if &term !~ 'linux' && !has('gui_running')
 
     " Load some colorschemes
     Plug 'kaicataldo/material.vim'
@@ -60,6 +60,8 @@ nmap <F8> :TagbarToggle<CR>
 if &term =~ 'linux'
     set t_Co=256
     colorscheme slate
+elseif has('gui_running')
+    colorscheme default
 else
     " True colors
     if (has("termguicolors"))
@@ -68,6 +70,9 @@ else
     set background=dark
     colorscheme material
 endif
+
+" Disable intro message
+set shortmess+=I
 
 " Use spaces instead of tabs
 set expandtab
