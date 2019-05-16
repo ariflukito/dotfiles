@@ -1,7 +1,7 @@
 [options]
-font = Source Code Pro for Powerline 12
+font = Source Code Pro for Powerline 11
 mouse_autohide = true
-allow_bold = true
+allow_bold = false
 cursor_blink = system
 dynamic_title = true
 
