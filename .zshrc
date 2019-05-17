@@ -14,6 +14,9 @@ if [[ $TERM != "linux" && $TERM != "xterm" ]]; then
     POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
     POWERLEVEL9K_SHORTEN_DELIMITER=""
     POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+    POWERLEVEL9K_TIME_FOREGROUND="250"
+    POWERLEVEL9K_TIME_BACKGROUND="black"
+    POWERLEVEL9K_TIME_FORMAT="%t"
     zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 fi
 
