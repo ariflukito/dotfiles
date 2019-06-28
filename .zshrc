@@ -1,24 +1,13 @@
 source /usr/share/zsh/scripts/zplug/init.zsh
 
-DEFAULT_USER=$USER
-
 # Load some plugins
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
 
-if [[ $TERM != "linux" && $TERM != "xterm" ]]; then
-    zplug "zsh-users/zsh-autosuggestions"
-
-    # Load powerlevel9k prompt
-    POWERLEVEL9K_MODE='awesome-patched'
-    POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-    POWERLEVEL9K_SHORTEN_DELIMITER=""
-    POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-    POWERLEVEL9K_TIME_FOREGROUND="250"
-    POWERLEVEL9K_TIME_BACKGROUND="black"
-    POWERLEVEL9K_TIME_FORMAT="%t"
-    zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
-fi
+[[ $TERM == xterm* ]] || : ${PURE_POWER_MODE:=portable}
+source ~/.purepower
+zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 
 zplug load
 

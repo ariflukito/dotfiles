@@ -11,14 +11,16 @@ Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-syntastic/syntastic'
+Plug 'godlygeek/tabular'
 
 " Only load on graphical terminal
 if &term !~ 'linux' && !has('gui_running')
 
     " Load some colorschemes
-    Plug 'kaicataldo/material.vim'
+    "Plug 'kaicataldo/material.vim'
     "Plug 'dikiaap/minimalist'
     "Plug 'altercation/vim-colors-solarized'
+    Plug 'nerdypepper/agila.vim'
 
     let g:material_terminal_italics = 1
 
@@ -68,7 +70,7 @@ else
         set termguicolors
     endif
     set background=dark
-    colorscheme material
+    colorscheme agila
 endif
 
 " Disable intro message
@@ -94,3 +96,16 @@ set hlsearch
 
 " Use clipboard buffer in X
 set clipboard=unnamedplus
+
+"
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
