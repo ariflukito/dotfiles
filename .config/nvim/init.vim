@@ -10,18 +10,15 @@ Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-syntastic/syntastic'
+Plug 'dhruvasagar/vim-table-mode'
+
+" Load agila colorscheme
+Plug 'nerdypepper/agila.vim'
 
 let myterm = $TERM
 
 " Only load on graphical terminal
 if myterm !~ 'linux'
-
-    " Load some colorschemes
-    Plug 'kaicataldo/material.vim'
-    "Plug 'dikiaap/minimalist'
-    "Plug 'altercation/vim-colors-solarized'
-
-    let g:material_terminal_italics = 1
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -60,14 +57,13 @@ nmap <F8> :TagbarToggle<CR>
 " Set theme color
 if myterm =~ 'linux'
     set guicursor=
-    colorscheme slate
+    colorscheme agila
 else
     " True colors
     if (has("termguicolors"))
         set termguicolors
     endif
-    set background=dark
-    colorscheme material
+    colorscheme agila
 endif
 
 " Disable intro message

@@ -11,18 +11,14 @@ Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-syntastic/syntastic'
-Plug 'godlygeek/tabular'
+"Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode'
+
+" Load agila colorscheme
+Plug 'nerdypepper/agila.vim'
 
 " Only load on graphical terminal
 if &term !~ 'linux' && !has('gui_running')
-
-    " Load some colorschemes
-    "Plug 'kaicataldo/material.vim'
-    "Plug 'dikiaap/minimalist'
-    "Plug 'altercation/vim-colors-solarized'
-    Plug 'nerdypepper/agila.vim'
-
-    let g:material_terminal_italics = 1
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -43,9 +39,10 @@ if &term !~ 'linux' && !has('gui_running')
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
 endif
-
+    
 " Initialize plugin system
 call plug#end()
+
 
 " Shortcut for CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -61,7 +58,7 @@ nmap <F8> :TagbarToggle<CR>
 " Set theme color
 if &term =~ 'linux'
     set t_Co=256
-    colorscheme slate
+    colorscheme agila
 elseif has('gui_running')
     colorscheme default
 else
@@ -69,7 +66,6 @@ else
     if (has("termguicolors"))
         set termguicolors
     endif
-    set background=dark
     colorscheme agila
 endif
 
@@ -96,16 +92,3 @@ set hlsearch
 
 " Use clipboard buffer in X
 set clipboard=unnamedplus
-
-"
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
