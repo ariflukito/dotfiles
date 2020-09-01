@@ -25,5 +25,7 @@ bindkey '\eOB' history-substring-search-down
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+#FZF Fuzzy Finder
 [[ ! -f /usr/share/fzf/key-bindings.zsh ]] || source /usr/share/fzf/key-bindings.zsh
 [[ ! -f /usr/share/fzf/completion.zsh ]] || source /usr/share/fzf/completion.zsh
+export FZF_DEFAULT_OPTS='--prompt "❯ " --pointer "❯ " --color=16,prompt:2,pointer:3'
