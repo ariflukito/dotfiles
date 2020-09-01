@@ -39,7 +39,7 @@ if &term !~ 'linux' && !has('gui_running')
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
 endif
-    
+
 " Initialize plugin system
 call plug#end()
 
