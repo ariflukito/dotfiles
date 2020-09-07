@@ -1,3 +1,5 @@
+[[ -x /usr/bin/fortune ]] && fortune fortunes
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -11,7 +13,6 @@ source /usr/share/zsh/scripts/zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
-
 [[ $TERM == xterm* ]] && zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 
 zplug load
@@ -19,8 +20,6 @@ zplug load
 #Bind arrow up and arror down keys for histroy substring search
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
-
-[[ -x /usr/bin/fortune ]] && fortune -s /usr/share/fortune/humorists /usr/share/fortune/riddles
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
