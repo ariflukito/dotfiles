@@ -27,4 +27,5 @@ bindkey '\eOB' history-substring-search-down
 #FZF Fuzzy Finder
 [[ ! -f /usr/share/fzf/key-bindings.zsh ]] || source /usr/share/fzf/key-bindings.zsh
 [[ ! -f /usr/share/fzf/completion.zsh ]] || source /usr/share/fzf/completion.zsh
-export FZF_DEFAULT_OPTS='--prompt "❯ " --pointer "❯ " --color=16,prompt:2,pointer:3'
+export FZF_DEFAULT_COMMAND='fd --hidden --follow --type f --exclude .git'
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --inline-info --prompt '▶ ' --pointer '▶' --marker '•' --color=16,prompt:2,pointer:3 --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {} 2> /dev/null' --preview-window='right:hidden:wrap' --bind='f3:execute(bat -n {}),f2:toggle-preview'"

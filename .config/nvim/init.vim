@@ -11,8 +11,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-syntastic/syntastic'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'junegunn/fzf.vim' 
 
-" Load agila colorscheme
+" Load some colorschemes
 Plug 'nerdypepper/agila.vim'
 
 let myterm = $TERM

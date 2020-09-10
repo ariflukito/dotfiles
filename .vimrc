@@ -13,8 +13,9 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-syntastic/syntastic'
 "Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'junegunn/fzf.vim'
 
-" Load agila colorscheme
+" Load some colorschemes
 Plug 'nerdypepper/agila.vim'
 
 " Only load on graphical terminal
