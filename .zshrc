@@ -13,6 +13,7 @@ source /usr/share/zsh/scripts/zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
+[[ (( $+commands[fzf] )) ]] && zplug "wfxr/forgit"
 [[ $TERM == xterm* ]] && zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 
 zplug load
@@ -28,4 +29,16 @@ bindkey '\eOB' history-substring-search-down
 [[ ! -f /usr/share/fzf/key-bindings.zsh ]] || source /usr/share/fzf/key-bindings.zsh
 [[ ! -f /usr/share/fzf/completion.zsh ]] || source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND='fd --hidden --follow --type f --exclude .git'
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --inline-info --prompt '▶ ' --pointer '▶' --marker '•' --color=16,prompt:2,pointer:3 --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {} 2> /dev/null' --preview-window='right:hidden:wrap' --bind='f3:execute(bat -n {}),f2:toggle-preview'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="
+    --height 40% 
+    --layout=reverse 
+    --inline-info 
+    --prompt '▶ ' 
+    --pointer '▶' 
+    --marker '•' 
+    --color=16,prompt:2,pointer:3 
+    --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {}' 
+    --preview-window='right:noborder:hidden:wrap' 
+    --bind='?:toggle-preview'"
+export FORGIT_FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS"
