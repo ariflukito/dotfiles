@@ -9,11 +9,14 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'severin-lemaignan/vim-minimap'
-Plug 'vim-syntastic/syntastic'
-"Plug 'godlygeek/tabular'
+Plug 'dense-analysis/ale' 
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim' 
+Plug 'preservim/nerdcommenter'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Load some colorschemes
 Plug 'nerdypepper/agila.vim'
@@ -23,6 +26,7 @@ if &term !~ 'linux' && !has('gui_running')
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'ryanoasis/vim-devicons'
 
     " vim-airline configuration
     let g:airline_powerline_fonts = 1
@@ -31,27 +35,30 @@ if &term !~ 'linux' && !has('gui_running')
     let g:airline_skip_empty_sections = 1
     let g:airline_theme = 'hybrid'
 
-    " vim-syntastic configuration
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
+    let g:webdevicons_enable = 1
+    let g:webdevicons_enable_airline_statusline = 1
+    let g:webdevicons_enable_airline_tabline = 1
+
 endif
 
 " Initialize plugin system
 call plug#end()
 
-
 " Shortcut for CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" Snippets
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger ='<tab>'
+let g:UltiSnipsJumpBackwardTrigger ='<c-b>'
+
 " Shortcut to change buffer easier
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+nnoremap <c-right> :bnext<cr>
+nnoremap <c-left> :bprevious<cr>
+
+" Allow switching between buffers without saving
+set hidden
 
 " Shortcut for Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -65,7 +72,7 @@ elseif has('gui_running')
 else
     " True colors
     if (has("termguicolors"))
-        set termguicolors
+       set termguicolors
     endif
     colorscheme agila
 endif
