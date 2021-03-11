@@ -6,13 +6,13 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-vinegar'
-Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dense-analysis/ale' 
+Plug 'dense-analysis/ale'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'junegunn/fzf.vim' 
-Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf.vim'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -45,23 +45,34 @@ endif
 call plug#end()
 
 " Shortcut for CtrlP
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" NERDTree configuations
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeMinimalUI = 1
+nnoremap <silent> <C-t> :NERDTreeToggle<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR>
+
+" Exit nvim if NERDTree is the only window left
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
 " Snippets
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger ='<tab>'
-let g:UltiSnipsJumpBackwardTrigger ='<c-b>'
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger ='<Tab>'
+let g:UltiSnipsJumpBackwardTrigger ='<C-b>'
 
 " Shortcut to change buffer easier
-nnoremap <c-right> :bnext<cr>
-nnoremap <c-left> :bprevious<cr>
+nnoremap <silent> <C-Right> :bnext<CR>
+nnoremap <silent> <C-Left> :bprevious<CR>
 
 " Allow switching between buffers without saving
 set hidden
 
 " Shortcut for Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <silent> <F8> :TagbarToggle<CR>
 
 " Set theme color
 if &term =~ 'linux'
