@@ -18,27 +18,47 @@ zplug "zsh-users/zsh-autosuggestions"
 
 zplug load
 
-#Bind arrow up and arror down keys for histroy substring search
+# Bind arrow up and arror down keys for histroy substring search
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#FZF Fuzzy Finder
+# FZF Fuzzy Finder
 [[ ! -f /usr/share/fzf/key-bindings.zsh ]] || source /usr/share/fzf/key-bindings.zsh
 [[ ! -f /usr/share/fzf/completion.zsh ]] || source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND='fd --hidden --follow --type f --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="
-    --height 40% 
-    --layout=reverse 
-    --inline-info 
-    --prompt '▶ ' 
-    --pointer '▶' 
-    --marker '•' 
-    --color=16,prompt:2,pointer:3 
-    --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {}' 
-    --preview-window='right:noborder:hidden:wrap' 
+    --height 40%
+    --layout=reverse
+    --inline-info
+    --prompt '▶ '
+    --pointer '▶'
+    --marker '•'
+    --color=16,prompt:2,pointer:3
+	--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {}'
+    --preview-window='right:noborder:hidden:wrap'
     --bind='?:toggle-preview'"
 export FORGIT_FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS"
+
+# Set colourscheme for Virtual Console
+if [ "$TERM" = "linux" ]; then
+	echo -en "\e]P01A1E24" #black
+    echo -en "\e]P83B4453" #darkgrey
+    echo -en "\e]P1EE6165" #darkred
+    echo -en "\e]P9EE6165" #red
+    echo -en "\e]P291B859" #darkgreen
+    echo -en "\e]PA91B859" #green
+    echo -en "\e]P3FAC751" #brown
+    echo -en "\e]PBFAC751" #yellow
+    echo -en "\e]P46398CF" #darkblue
+    echo -en "\e]PC6398CF" #blue
+    echo -en "\e]P5C28AA3" #darkmagenta
+    echo -en "\e]PDC28AA3" #magenta
+    echo -en "\e]P65BB3B4" #darkcyan
+    echo -en "\e]PE5BB3B4" #cyan
+    echo -en "\e]P7CDD3DF" #lightgrey
+    echo -en "\e]PFCDD3DF" #white
+fi

@@ -53,6 +53,8 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 nnoremap <silent> <C-t> :NERDTreeToggle<CR>
 nnoremap <silent> <C-f> :NERDTreeFind<CR>
 
