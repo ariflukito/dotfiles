@@ -32,15 +32,10 @@ export FZF_DEFAULT_COMMAND='fd --hidden --follow --type f --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="
     --height 40%
-    --layout=reverse
-    --inline-info
-    --prompt '▶ '
-    --pointer '▶'
-    --marker '•'
-    --color=16,prompt:2,pointer:3
+    --color=dark,info:8,gutter:0,bg+:8,hl:2,hl+:2,pointer:2,marker:2
 	--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {}'
-    --preview-window='right:noborder:hidden:wrap'
-    --bind='?:toggle-preview'"
+    --preview-window='right:noborder:wrap'
+    --bind='ctrl-/:toggle-preview'"
 export FORGIT_FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS"
 
 # Set colourscheme for Virtual Console

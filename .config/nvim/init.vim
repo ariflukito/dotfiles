@@ -9,6 +9,7 @@ Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'junegunn/fzf.vim'
@@ -31,6 +32,8 @@ if myterm !~ 'linux'
 
     " vim-airline configuration
     let g:airline_powerline_fonts = 1
+    let g:airline#extensions#ale#enabled = 1
+    let g:airline#extensions#coc#enabled = 1
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#formatter = 'default'
     let g:airline_skip_empty_sections = 1
@@ -61,6 +64,31 @@ nnoremap <silent> <C-f> :NERDTreeFind<CR>
 " Exit nvim if NERDTree is the only window left
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
+
+" FZF configurations
+let g:fzf_colors = { 
+    \ 'gutter'    : ['bg', 'Normal'],
+    \ 'bg+'       : ['bg', 'Folded'],
+    \ 'pointer'   : ['fg', 'TabLineSel'],
+    \ 'marker'    : ['fg', 'TabLineSel'],
+    \ 'info'      : ['fg', 'Comment'],  
+\}
+
+" ALE configurations
+let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'python': ['yapf'],
+\}
+let g:ale_fix_on_save = 1
+
+" CoC configurations
+" Make <CR> auto-select the first completion itemm
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Snippets
 let g:UltiSnipsExpandTrigger = '<Tab>'
@@ -101,6 +129,9 @@ set tabstop=4
 
 " Show line numbers
 set number
+
+" Merge signcolumn and number column
+"set signcolumn=number
 
 " Keyword completion options
 set ignorecase
