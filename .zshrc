@@ -56,4 +56,5 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PE5BB3B4" #cyan
     echo -en "\e]P7CDD3DF" #lightgrey
     echo -en "\e]PFCDD3DF" #white
+    clear
 fi
