@@ -4,7 +4,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 source /usr/share/zsh/scripts/zplug/init.zsh
@@ -33,14 +33,14 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="
     --height 40%
     --color=dark,info:8,gutter:0,bg+:8,hl:2,hl+:2,pointer:2,marker:2
-	--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {}'
+    --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat -n --color=always {}'
     --preview-window='right:noborder:wrap'
     --bind='ctrl-/:toggle-preview'"
 export FORGIT_FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS"
 
 # Set colourscheme for Virtual Console
 if [ "$TERM" = "linux" ]; then
-	echo -en "\e]P01A1E24" #black
+    echo -en "\e]P01A1E24" #black
     echo -en "\e]P83B4453" #darkgrey
     echo -en "\e]P1EE6165" #darkred
     echo -en "\e]P9EE6165" #red

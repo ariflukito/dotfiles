@@ -65,12 +65,12 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 " FZF configurations
-let g:fzf_colors = { 
+let g:fzf_colors = {
     \ 'gutter'    : ['bg', 'Normal'],
     \ 'bg+'       : ['bg', 'Folded'],
     \ 'pointer'   : ['fg', 'TabLineSel'],
     \ 'marker'    : ['fg', 'TabLineSel'],
-    \ 'info'      : ['fg', 'Comment'],  
+    \ 'info'      : ['fg', 'Comment'],
 \}
 
 " ALE configurations
