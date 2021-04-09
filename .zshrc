@@ -38,6 +38,10 @@ export FZF_DEFAULT_OPTS="
     --bind='ctrl-/:toggle-preview'"
 export FORGIT_FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS $FORGIT_FZF_DEFAULT_OPTS"
 
+if [[ $TERM == xterm* ]]; then
+    [[ -x /usr/bin/logo-ls ]] && alias ls=logo-ls
+fi
+
 # Set colourscheme for Virtual Console
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P01A1E24" #black
